@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Movies App',
-        short_name: 'Movies',
+        name: 'KADRIX',
+        short_name: 'KADRIX',
         description: 'Filmlar va seriallarni ko\'ring',
         theme_color: '#0a0f1e',
         background_color: '#0a0f1e',
@@ -43,26 +43,24 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
         runtimeCaching: [
           {
-            // TMDB poster rasmlar cache
             urlPattern: /^https:\/\/image\.tmdb\.org\/.*/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'tmdb-images',
               expiration: {
                 maxEntries: 200,
-                maxAgeSeconds: 60 * 60 * 24 * 7, // 7 kun
+                maxAgeSeconds: 60 * 60 * 24 * 7, 
               },
             },
           },
           {
-            // TMDB API cache
             urlPattern: /^https:\/\/api\.themoviedb\.org\/.*/i,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'tmdb-api',
               expiration: {
                 maxEntries: 100,
-                maxAgeSeconds: 60 * 60, // 1 soat
+                maxAgeSeconds: 60 * 60, 
               },
             },
           },
